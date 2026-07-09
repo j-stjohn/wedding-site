@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us</title>
+  <style>
+    :root {
+      --blue: #dfe8ef;
+      --navy: #183b63;
+      --steel: #4f6f8d;
+      --gold: #c7a96b;
+      --ink: #2b2f35;
+      --cream: #f7f2eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Georgia", "Times New Roman", serif;
+      color: var(--ink);
+      background: linear-gradient(135deg, #f8f5ef 0%, var(--blue) 45%, #cfdce8 100%);
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px 0 30px;
+    }
+
+    .emblem {
+      width: 220px;
+      height: 220px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      border: 3px solid var(--gold);
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      box-shadow: 0 12px 30px rgba(47, 47, 47, 0.15);
+      overflow: hidden;
+    }
+
+    .emblem img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--cream);
+      background: linear-gradient(135deg, var(--navy), var(--steel));
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    nav a:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, var(--gold), #d8be82);
+      color: var(--ink);
+    }
+
+    .hero {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(24, 59, 99, 0.12);
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 18px 45px rgba(47, 47, 47, 0.08);
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      margin: 0 0 10px;
+      color: var(--navy);
+      letter-spacing: 0.04em;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: 1.04rem;
+    }
+
+    .content-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--cream);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(47, 47, 47, 0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 220px;
+    }
+
+    .card h2 {
+      color: var(--navy);
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 30px;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 760px) {
+      .card {
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="emblem" aria-label="Wedding emblem">
+        <img src="../images/wedding-emblem-color.png" alt="Wedding emblem" />
+      </div>
+      <nav>
+        <a href="homepage.html">Home</a>
+        <a href="about-us.html">Our Story</a>
+        <a href="event-details.html">Event Details</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="rsvp.html">RSVP</a>
+        <a href="registry.html">Registry</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="story">
+      <h1>About Us</h1>
+      <p>We are Christie and Jacob, and we're so excited to celebrate this next chapter with the people who mean the most to us. What began as a chance introduction at Wayne State quickly turned into late-night conversations, countless adventures, and a relationship built on trust, laughter, and supporting one another through every season of life.</p>
+      <p>Together we've learned that the best relationships aren't perfect—they're built one day at a time with patience, shared goals, plenty of laughs, and the willingness to keep choosing each other. We're grateful for the families and friends who have helped shape our journey, and we're excited to begin our marriage surrounded by all of you</p>
+    </section>
+
+    <section class="content-stack">
+      <article class="card">
+        <h2>How We Met</h2>
+        <p>We met in the fall of 2023 at the Engineering Building at Wayne State University. Jacob and Christie's younger sister were coworkers/teaching assistants for WSU's Basic Engineering course. From a simple question of how your summer went turned into Jen bringing Christie to meet Jacob a few weeks later.</p>
+        <p>It wasn't love at first sight, and it certainly wasn't like the movies. There were no dramatic slow-motion moments or hair blowing in the wind—just two people who genuinely enjoyed talking to each other. Looking back, that ordinary beginning turned into something extraordinary.</p>
+        <p><i>Then came the infamous first text:</i></p>
+        <p><b>"But seriously, what gives?"</b> from an almost awkward, and luckily not mistrued first text, Jacob almost blew it before it even started. Fortunately, what could have been a disastrous first impression became one of our favorite stories to laugh about. Soon after, we went on our first date—a double date with Jen and TJ—to see <i>Disney's Frozen</i> at the Detroit Opera House. Between the awkward moments, great conversation, and plenty of laughter, something special began to grow. Looking back now, it's hard to imagine our story starting any other way.</p>
+      </article>
+
+      <article class="card" id="values">
+        <h2>What We Value</h2>
+        <ul>
+          <li><i>The Beauty found in the disaster</i></li>
+          <li><i>Hard work, honesty, and always showing up for one another</i></li>
+          <li><i>Finding joy in both life's adventures and its quiet moments</i></li>
+          <li><i>Building a home filled with laughter, kindness, and hospitality</i></li>
+          <li><i>Growing together through every new chapter</i></li>
+        </ul>
+      </article>
+
+      <article class="card" id="journey">
+        <h2>Our Journey</h2>
+        <p>Since meeting in 2023, life has moved quickly—in the best way. From our first (slightly awkward) double date to countless dinners, road trips, holidays, and ordinary evenings together, we've discovered that our favorite memories are often the simplest ones.</p>
+        <p>Along the way we've encouraged each other's careers, celebrated milestones, supported one another through challenges, and dreamed about the future we're building together. Every experience has strengthened our friendship and reminded us why we make such a great team.</p>
+        <p>Now we're looking forward to our biggest adventure yet: becoming husband and wife. We're incredibly thankful for everyone who has supported us along the way, and we can't wait to celebrate this day with all of you.</p>
+      </article>
+    </section>
+
+    <footer>
+      <p>With love, Christie &amp; Jacob</p>
+      <p><a href="homepage.html">Back to Home</a></p>
+    </footer>
+  </div>
+</body>
+</html>

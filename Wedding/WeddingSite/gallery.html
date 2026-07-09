@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Wedding gallery featuring formal engagement photos and wedding day memories." />
+  <title>Gallery | Our Wedding Celebration</title>
+  <style>
+    :root {
+      --blue: #dfe8ef;
+      --navy: #183b63;
+      --steel: #4f6f8d;
+      --gold: #c7a96b;
+      --ink: #2b2f35;
+      --cream: #f7f2eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Georgia", "Times New Roman", serif;
+      color: var(--ink);
+      background: linear-gradient(135deg, #f8f5ef 0%, var(--blue) 45%, #cfdce8 100%);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px 0 30px;
+    }
+
+    .emblem {
+      width: 220px;
+      height: 220px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      border: 3px solid var(--gold);
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      box-shadow: 0 12px 30px rgba(47, 47, 47, 0.15);
+      overflow: hidden;
+    }
+
+    .emblem img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    nav a {
+      color: var(--cream);
+      background: linear-gradient(135deg, var(--navy), var(--steel));
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, var(--gold), #d8be82);
+      color: var(--ink);
+      outline: none;
+    }
+
+    .hero {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(24, 59, 99, 0.12);
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 18px 45px rgba(47, 47, 47, 0.08);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      color: var(--navy);
+      font-size: 2.1rem;
+      letter-spacing: 0.03em;
+    }
+
+    .hero p {
+      margin: 0 auto;
+      max-width: 760px;
+      font-size: 1.03rem;
+    }
+
+    .section-block {
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(24, 59, 99, 0.12);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 18px 45px rgba(47, 47, 47, 0.08);
+      margin-bottom: 24px;
+    }
+
+    .section-block h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: var(--navy);
+      font-size: 1.35rem;
+    }
+
+    .section-block p {
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: var(--ink);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .gallery-item {
+      background: var(--cream);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(47, 47, 47, 0.06);
+      border: 1px solid rgba(24, 59, 99, 0.08);
+      aspect-ratio: 1 / 1.2;
+      cursor: zoom-in;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(47, 47, 47, 0.12);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(12, 20, 29, 0.86);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 1000;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 16px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      background: white;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--ink);
+      border: none;
+      border-radius: 999px;
+      width: 42px;
+      height: 42px;
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+
+    .gallery-item--soon {
+      padding: 20px;
+      text-align: center;
+      color: var(--steel);
+      font-style: italic;
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 30px;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero,
+      .section-block {
+        padding: 24px;
+      }
+
+      .emblem {
+        width: 180px;
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close image">×</button>
+    <img id="lightboxImage" src="" alt="Expanded wedding photo" />
+  </div>
+
+  <div class="page">
+    <header>
+      <div class="emblem" aria-label="Wedding emblem">
+        <img src="../images/wedding-emblem-color.png" alt="Wedding emblem" />
+      </div>
+      <nav aria-label="Main navigation">
+        <a href="about-us.html">About Us</a>
+        <a href="event-details.html">Event Details</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="rsvp.html">RSVP</a>
+        <a href="registry.html">Registry</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="gallery-title">
+        <h1 id="gallery-title"><i>She Said Yes!</i></h1>
+        <p>A collection of cherished memories from our engagement season and the celebration we are so excited to share with you.</p>
+        <div class="gallery-grid" style="margin-top: 24px;">
+          <div class="gallery-item" data-image="Celebrate-Vert.jpg"><img src="../images/Celebrate-Vert.jpg" alt="Celebration photo" /></div>
+          <div class="gallery-item" data-image="Kiss-Vert.jpg"><img src="../images/Kiss-Vert.jpg" alt="Kiss photo" /></div>
+          <div class="gallery-item" data-image="Kneel-Hor.jpg"><img src="../images/Kneel-Hor.jpg" alt="Kneeling photo" /></div>
+          <div class="gallery-item" data-image="Kneel-Kiss-Vert.jpg"><img src="../images/Kneel-Kiss-Vert.jpg" alt="Kneeling kiss photo" /></div>
+          <div class="gallery-item" data-image="Lean-Vert-BW.jpg"><img src="../images/Lean-Vert-BW.jpg" alt="Leaning black and white photo" /></div>
+          <div class="gallery-item" data-image="Looking-Vert-BW.jpg"><img src="../images/Looking-Vert-BW.jpg" alt="Looking black and white photo" /></div>
+          <div class="gallery-item" data-image="Moment-BW.jpg"><img src="../images/Moment-BW.jpg" alt="Moment black and white photo" /></div>
+          <div class="gallery-item" data-image="Propose-Hor.jpg"><img src="../images/Propose-Hor.jpg" alt="Proposal photo" /></div>
+          <div class="gallery-item" data-image="Show-Off-Vert.jpg"><img src="../images/Show-Off-Vert.jpg" alt="Show off photo" /></div>
+          <div class="gallery-item" data-image="Suprise-Vert.jpg"><img src="../images/Suprise-Vert.jpg" alt="Surprise photo" /></div>
+          <div class="gallery-item" data-image="The-Ring.jpg"><img src="../images/The-Ring.jpg" alt="Ring photo" /></div>
+          <div class="gallery-item" data-image="Together-Vert.jpg"><img src="../images/Together-Vert.jpg" alt="Together photo" /></div>
+          <div class="gallery-item" data-image="Us-Hor-BW.jpg"><img src="../images/Us-Hor-BW.jpg" alt="Us black and white photo" /></div>
+          <div class="gallery-item" data-image="Us-Hor.jpg"><img src="../images/Us-Hor.jpg" alt="Us photo" /></div>
+        </div>
+      </section>
+
+      <section class="section-block" aria-labelledby="engagement-title">
+        <h2 id="engagement-title">Formal Engagement Photos</h2>
+        <p>This section will be coming soon. We are preparing a beautiful collection of formal engagement photos to share with you.</p>
+        <div class="gallery-grid">
+          <div class="gallery-item gallery-item--soon">Coming soon</div>
+          <div class="gallery-item gallery-item--soon">Coming soon</div>
+          <div class="gallery-item gallery-item--soon">Coming soon</div>
+          <div class="gallery-item gallery-item--soon">Coming soon</div>
+        </div>
+      </section>
+
+      <section class="section-block" aria-labelledby="wedding-title">
+        <h2 id="wedding-title">Tying the Knot</h2>
+        <p>The photos from our wedding day will be added after the event, so please check back soon to relive the memories with us.</p>
+        <div class="gallery-grid">
+          <div class="gallery-item gallery-item--soon">Photos coming after the event</div>
+          <div class="gallery-item gallery-item--soon">Photos coming after the event</div>
+          <div class="gallery-item gallery-item--soon">Photos coming after the event</div>
+          <div class="gallery-item gallery-item--soon">Photos coming after the event</div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>With love, Christie &amp; Jacob</p>
+      <p><a href="homepage.html">Back to Home</a></p>
+    </footer>
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const closeButton = document.getElementById('lightboxClose');
+
+    document.querySelectorAll('.gallery-item[data-image]').forEach((item) => {
+      item.addEventListener('click', () => {
+        const imageName = item.getAttribute('data-image');
+        lightboxImage.src = imageName;
+        lightboxImage.alt = item.querySelector('img').alt;
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+    }
+
+    closeButton.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+  </script>
+</body>
+</html>

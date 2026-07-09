@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="RSVP form for Christie and Jacob's wedding celebration, including attendance, lodging, and dietary information." />
+  <title>RSVP | Our Wedding Celebration</title>
+  <style>
+    :root {
+      --blue: #dfe8ef;
+      --navy: #183b63;
+      --steel: #4f6f8d;
+      --gold: #c7a96b;
+      --ink: #2b2f35;
+      --cream: #f7f2eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Georgia", "Times New Roman", serif;
+      color: var(--ink);
+      background: linear-gradient(135deg, #f8f5ef 0%, var(--blue) 45%, #cfdce8 100%);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px 0 30px;
+    }
+
+    .emblem {
+      width: 220px;
+      height: 220px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      border: 3px solid var(--gold);
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      box-shadow: 0 12px 30px rgba(47, 47, 47, 0.15);
+      overflow: hidden;
+    }
+
+    .emblem img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    nav a {
+      color: var(--cream);
+      background: linear-gradient(135deg, var(--navy), var(--steel));
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, var(--gold), #d8be82);
+      color: var(--ink);
+      outline: none;
+    }
+
+    .layout {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.7fr);
+      align-items: start;
+    }
+
+    .hero,
+    .form-card,
+    .countdown-card {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(24, 59, 99, 0.12);
+      border-radius: 24px;
+      box-shadow: 0 18px 45px rgba(47, 47, 47, 0.08);
+    }
+
+    .hero {
+      padding: 36px;
+      margin-bottom: 0;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      color: var(--navy);
+      font-size: 2.1rem;
+      letter-spacing: 0.03em;
+    }
+
+    .hero p {
+      margin: 0;
+      font-size: 1.03rem;
+      max-width: 760px;
+    }
+
+    .form-card {
+      padding: 30px;
+    }
+
+    .form-card h2 {
+      margin-top: 0;
+      color: var(--navy);
+      font-size: 1.25rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    label,
+    fieldset {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.98rem;
+    }
+
+    legend {
+      font-weight: 700;
+      color: var(--navy);
+      padding: 0;
+    }
+
+    .radio-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 4px;
+    }
+
+    .radio-row label {
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+    }
+
+    input,
+    textarea,
+    button {
+      font: inherit;
+      border-radius: 12px;
+      border: 1px solid rgba(24, 59, 99, 0.16);
+      padding: 12px 14px;
+      background: white;
+      color: var(--ink);
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    button {
+      background: linear-gradient(135deg, var(--navy), var(--steel));
+      color: var(--cream);
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    button:hover,
+    button:focus-visible {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, var(--gold), #d8be82);
+      color: var(--ink);
+      outline: none;
+    }
+
+    .helper-text {
+      margin: 0;
+      color: var(--steel);
+      font-size: 0.95rem;
+    }
+
+    .countdown-card {
+      padding: 24px;
+      position: sticky;
+      top: 20px;
+    }
+
+    .countdown-card h2 {
+      margin: 0 0 6px;
+      color: var(--navy);
+      font-size: 1.2rem;
+    }
+
+    .countdown-label {
+      margin: 0 0 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--steel);
+      font-size: 0.8rem;
+    }
+
+    .countdown {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 16px;
+    }
+
+    .countdown div {
+      background: linear-gradient(135deg, #e8eef4, #d5e2ec);
+      border-radius: 14px;
+      padding: 12px 8px;
+      text-align: center;
+      border: 1px solid rgba(24, 59, 99, 0.15);
+    }
+
+    .countdown strong {
+      display: block;
+      font-size: 1.4rem;
+      color: var(--navy);
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 30px;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .countdown-card {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero,
+      .form-card,
+      .countdown-card {
+        padding: 24px;
+      }
+
+      .emblem {
+        width: 180px;
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="emblem" aria-label="Wedding emblem">
+        <img src="../images/wedding-emblem-color.png" alt="Wedding emblem" />
+      </div>
+      <nav aria-label="Main navigation">
+        <a href="homepage.html">Home</a>
+        <a href="about-us.html">Our Story</a>
+        <a href="event-details.html">Event Details</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="rsvp.html">RSVP</a>
+        <a href="registry.html">Registry</a>
+      </nav>
+    </header>
+
+    <main class="layout">
+      <div>
+        <section class="hero" aria-labelledby="rsvp-title">
+          <h1 id="rsvp-title">RSVP</h1>
+          <p>Please let us know your plans for our celebration. Your response will help us prepare the day with care, and your information will be saved securely for our planning team.</p>
+        </section>
+
+        <section class="form-card" aria-labelledby="form-title">
+          <h2 id="form-title">Guest Response Form</h2>
+          <form action="../php/submit-rsvp.php" method="post" id="rsvpForm">
+            <div class="form-grid">
+              <label>
+                <span>Who are you?</span>
+                <input type="text" name="guest_name" placeholder="Your name" required />
+              </label>
+              <label>
+                <span>Who else will be attending?</span>
+                <input type="text" name="party_members" placeholder="Spouse, children, plus one, etc." />
+              </label>
+            </div>
+
+            <fieldset>
+              <legend>Will you be attending?</legend>
+              <div class="radio-row">
+                <label><input type="radio" name="attending" value="Yes" checked /> Yes, I will attend</label>
+                <label><input type="radio" name="attending" value="No" /> No, I will not attend</label>
+              </div>
+            </fieldset>
+
+            <div id="detailsSection">
+              <fieldset>
+                <legend>Will you need lodging?</legend>
+                <div class="radio-row">
+                  <label><input type="radio" name="lodging_needed" value="Yes" /> Yes</label>
+                  <label><input type="radio" name="lodging_needed" value="No" checked /> No</label>
+                </div>
+              </fieldset>
+
+              <div id="lodgingDetails">
+                <label>
+                  <span>Email for lodging accommodation information</span>
+                  <input type="email" name="lodging_email" placeholder="you@example.com" />
+                </label>
+              </div>
+
+              <label>
+                <span>Dietary requests</span>
+                <textarea name="dietary_requests" placeholder="Please share any allergies, preferences, or meal requests."></textarea>
+              </label>
+
+              <div class="form-grid">
+                <label>
+                  <span>Contact email</span>
+                  <input type="email" name="contact_email" placeholder="you@example.com" required />
+                </label>
+                <label>
+                  <span>Phone number</span>
+                  <input type="tel" name="phone_number" placeholder="(555) 123-4567" />
+                </label>
+              </div>
+            </div>
+
+            <button type="submit"><a href="rsvp-thank-you.html">Submit RSVP</a></button>
+            <p class="helper-text">Please submit by June 15, 2027.</p>
+          </form>
+        </section>
+      </div>
+
+      <aside class="countdown-card" aria-label="RSVP deadline countdown">
+        <p class="countdown-label">RSVP deadline</p>
+        <h2>June 15, 2027</h2>
+        <div class="countdown">
+          <div><strong id="days">00</strong><span>Days</span></div>
+          <div><strong id="hours">00</strong><span>Hours</span></div>
+          <div><strong id="minutes">00</strong><span>Minutes</span></div>
+          <div><strong id="seconds">00</strong><span>Seconds</span></div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <p>With love, Christie &amp; Jacob</p>
+      <p><a href="homepage.html">Back to Home</a></p>
+    </footer>
+  </div>
+
+  <script>
+    const deadline = new Date('2027-06-15T23:59:59-04:00');
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+    const detailsSection = document.getElementById('detailsSection');
+    const lodgingDetails = document.getElementById('lodgingDetails');
+
+    function updateCountdown() {
+      const now = new Date();
+      const difference = deadline - now;
+
+      if (difference <= 0) {
+        daysEl.textContent = '00';
+        hoursEl.textContent = '00';
+        minutesEl.textContent = '00';
+        secondsEl.textContent = '00';
+        return;
+      }
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((difference / (1000 * 60)) % 60);
+      const seconds = Math.floor((difference / 1000) % 60);
+
+      daysEl.textContent = String(days).padStart(2, '0');
+      hoursEl.textContent = String(hours).padStart(2, '0');
+      minutesEl.textContent = String(minutes).padStart(2, '0');
+      secondsEl.textContent = String(seconds).padStart(2, '0');
+    }
+
+    function toggleAdditionalDetails() {
+      const attendingValue = document.querySelector('input[name="attending"]:checked')?.value;
+      const isAttending = attendingValue === 'Yes';
+      detailsSection.style.display = isAttending ? 'flex' : 'none';
+      detailsSection.style.flexDirection = 'column';
+      detailsSection.style.gap = '18px';
+    }
+
+    function toggleLodgingDetails() {
+      const lodgingValue = document.querySelector('input[name="lodging_needed"]:checked')?.value;
+      lodgingDetails.style.display = lodgingValue === 'Yes' ? 'block' : 'none';
+    }
+
+    document.querySelectorAll('input[name="attending"]').forEach((radio) => {
+      radio.addEventListener('change', toggleAdditionalDetails);
+    });
+
+    document.querySelectorAll('input[name="lodging_needed"]').forEach((radio) => {
+      radio.addEventListener('change', toggleLodgingDetails);
+    });
+
+    toggleAdditionalDetails();
+    toggleLodgingDetails();
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>

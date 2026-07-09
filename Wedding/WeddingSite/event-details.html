@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Wedding event details for Christie and Jacob, including ceremony and reception locations in Detroit, Michigan, plus nearby travel and attractions." />
+  <title>Event Details | Our Wedding Celebration</title>
+  <style>
+    :root {
+      --blue: #dfe8ef;
+      --navy: #183b63;
+      --steel: #4f6f8d;
+      --gold: #c7a96b;
+      --ink: #2b2f35;
+      --cream: #f7f2eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Georgia", "Times New Roman", serif;
+      color: var(--ink);
+      background: linear-gradient(135deg, #f8f5ef 0%, var(--blue) 45%, #cfdce8 100%);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px 0 30px;
+    }
+
+    .emblem {
+      width: 220px;
+      height: 220px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      border: 3px solid var(--gold);
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      box-shadow: 0 12px 30px rgba(47, 47, 47, 0.15);
+      overflow: hidden;
+    }
+
+    .emblem img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--cream);
+      background: linear-gradient(135deg, var(--navy), var(--steel));
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, var(--gold), #d8be82);
+      color: var(--ink);
+      outline: none;
+    }
+
+    .hero {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(24, 59, 99, 0.12);
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 18px 45px rgba(47, 47, 47, 0.08);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 2.1rem;
+      color: var(--navy);
+      letter-spacing: 0.03em;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0;
+      font-size: 1.03rem;
+    }
+
+    .overview-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-bottom: 24px;
+    }
+
+    .card {
+      background: var(--cream);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(47, 47, 47, 0.06);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: var(--navy);
+      font-size: 1.2rem;
+    }
+
+    .card p,
+    .card li {
+      font-size: 1rem;
+    }
+
+    .detail-list {
+      padding-left: 20px;
+      margin: 10px 0 0;
+    }
+
+    .map-section {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(24, 59, 99, 0.12);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 18px 45px rgba(47, 47, 47, 0.08);
+    }
+
+    .map-section h2 {
+      margin-top: 0;
+      color: var(--navy);
+    }
+
+    .map-layout {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: 1.4fr 0.8fr;
+      align-items: start;
+    }
+
+    .map-frame {
+      width: 100%;
+      min-height: 360px;
+      border: 0;
+      border-radius: 16px;
+      box-shadow: inset 0 0 0 1px rgba(24, 59, 99, 0.08);
+    }
+
+    .side-links {
+      background: var(--cream);
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .side-links h3 {
+      margin-top: 0;
+      color: var(--navy);
+    }
+
+    .side-links ul {
+      padding-left: 18px;
+      margin: 0;
+    }
+
+    .side-links li {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 30px;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 760px) {
+      .overview-grid,
+      .map-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero,
+      .map-section {
+        padding: 24px;
+      }
+
+      .emblem {
+        width: 180px;
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="visually-hidden" href="#main-content">Skip to main content</a>
+  <div class="page">
+    <header>
+      <div class="emblem" aria-label="Wedding emblem">
+        <img src="../images/wedding-emblem-color.png" alt="Wedding emblem" />
+      </div>
+      <nav aria-label="Main navigation">
+        <a href="homepage.html">Home</a>
+        <a href="about-us.html">Our Story</a>
+        <a href="event-details.html">Event Details</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="rsvp.html">RSVP</a>
+        <a href="registry.html">Registry</a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" aria-labelledby="event-title">
+        <h1 id="event-title">Event Details</h1>
+        <p>We are honored to celebrate our wedding weekend in Downtown Detroit with family and friends. Below you will find the ceremony and reception details, along with helpful travel and local attraction information for your stay.</p>
+      </section>
+
+      <section class="overview-grid" aria-label="Event overview">
+        <article class="card" id="ceremony">
+          <h2>Ceremony</h2>
+          <p><strong>St. John Paul II Parish</strong><br />
+            <a href="https://www.google.com/maps/dir/?api=1&destination=5830+Simon+Street,+Detroit,+MI" target="_blank" rel="noopener noreferrer"><i>5830 Simon Street</i>, <b>Detroit, Michigan</b></a>
+          </p>
+          <ul class="detail-list">
+            <li>Wedding ceremony beginning at 2:00 PM</li>
+            <li>Joyous and meaningful celebration, all are welcome to join us in holy matrimony!</li>
+            <li>Parking and arrival information will be shared closer to the date</li>
+          </ul>
+        </article>
+
+        <article class="card" id="reception">
+          <h2>Reception</h2>
+          <p><strong>Greektown Casino &amp; Hotel</strong><br />
+            <a href="https://www.google.com/maps/dir/?api=1&destination=555+E+Lafayette+St,+Detroit,+MI+48226" target="_blank" rel="noopener noreferrer"><i>555 E Lafayette Street</i>, <b>Detroit, Michigan</b></a><br />
+            <a href="https://www.google.com/maps/dir/?api=1&destination=parking+structure+near+I-75+Detroit" target="_blank" rel="noopener noreferrer">Route to the parking structure</a> off of freeway for ease of access.
+          </p>
+          <ul class="detail-list">
+            <li>Reception to follow immediately after the ceremony</li>
+            <li>Grand Ballroom celebration with dinner, dancing, and toasts</li>
+            <li>DJ Anthony will be providing music for the evening</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="map-section" id="travel" aria-labelledby="travel-title">
+        <h2 id="travel-title">Venue &amp; Travel Guide</h2>
+        <div class="map-layout">
+          <iframe
+            class="map-frame"
+            title="Map of the wedding ceremony and reception locations in Detroit"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            src="https://www.google.com/maps?q=St.%20John%20Paul%20II%20Parish%20Detroit%20Michigan%20Greektown%20Casino%20and%20Hotel&output=embed"
+          ></iframe>
+
+          <aside class="side-links" aria-label="Local travel and attraction links">
+            <h3>Extra Information</h3>
+            <ul>
+              <li><a href="https://www.google.com/maps/search/hotels+near+greektown+detroit/" target="_blank" rel="noopener noreferrer">Nearby hotels</a> - If you wish to stay overnight at a different more family-friendly option</li>
+              <li><a href="https://www.google.com/maps/search/things+to+do+in+detroit/" target="_blank" rel="noopener noreferrer">Detroit attractions</a> - A great way to explore the city beyond just our celebration</li>
+              <li><a href="https://visitdetroit.com/" target="_blank" rel="noopener noreferrer">Detroit tourism board</a> - A fantastic resource to plan the entire weekend if wishing to extend your stay</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>With love, Christie &amp; Jacob</p>
+      <p><a href="homepage.html">Back to Home</a></p>
+    </footer>
+  </div>
+</body>
+</html>
