@@ -214,6 +214,17 @@
       font-size: 0.95rem;
     }
 
+    .coming-soon {
+      margin-top: 18px;
+      padding: 18px 20px;
+      border: 1px solid rgba(199, 169, 107, 0.45);
+      border-radius: 16px;
+      background: linear-gradient(135deg, #f8f0df, #f3e8d1);
+      color: var(--navy);
+      font-weight: 600;
+      text-align: center;
+    }
+
     .countdown-card {
       padding: 24px;
       position: sticky;
@@ -310,80 +321,17 @@
       <div>
         <section class="hero" aria-labelledby="rsvp-title">
           <h1 id="rsvp-title">RSVP</h1>
-          <p>Please let us know your plans for our celebration. Your response will help us prepare the day with care, and your information will be saved securely for our planning team.</p>
+          <p>We will share RSVP details with you along with the wedding invitations. For now, this page is being prepared for the formal response process.</p>
         </section>
 
         <section class="form-card" aria-labelledby="form-title">
           <h2 id="form-title">Guest Response Form</h2>
-          <form action="../php/submit-rsvp.php" method="post" id="rsvpForm">
-            <div class="form-grid">
-              <label>
-                <span>Who are you?</span>
-                <input type="text" name="guest_name" placeholder="Your name" required />
-              </label>
-              <label>
-                <span>Who else will be attending?</span>
-                <input type="text" name="party_members" placeholder="Spouse, children, plus one, etc." />
-              </label>
-            </div>
-
-            <fieldset>
-              <legend>Will you be attending?</legend>
-              <div class="radio-row">
-                <label><input type="radio" name="attending" value="Yes" checked /> Yes, I will attend</label>
-                <label><input type="radio" name="attending" value="No" /> No, I will not attend</label>
-              </div>
-            </fieldset>
-
-            <div id="detailsSection">
-              <fieldset>
-                <legend>Will you need lodging?</legend>
-                <div class="radio-row">
-                  <label><input type="radio" name="lodging_needed" value="Yes" /> Yes</label>
-                  <label><input type="radio" name="lodging_needed" value="No" checked /> No</label>
-                </div>
-              </fieldset>
-
-              <div id="lodgingDetails">
-                <label>
-                  <span>Email for lodging accommodation information</span>
-                  <input type="email" name="lodging_email" placeholder="you@example.com" />
-                </label>
-              </div>
-
-              <label>
-                <span>Dietary requests</span>
-                <textarea name="dietary_requests" placeholder="Please share any allergies, preferences, or meal requests."></textarea>
-              </label>
-
-              <div class="form-grid">
-                <label>
-                  <span>Contact email</span>
-                  <input type="email" name="contact_email" placeholder="you@example.com" required />
-                </label>
-                <label>
-                  <span>Phone number</span>
-                  <input type="tel" name="phone_number" placeholder="(555) 123-4567" />
-                </label>
-              </div>
-            </div>
-
-            <button type="submit"><a href="rsvp-thank-you.html">Submit RSVP</a></button>
-            <p class="helper-text">Please submit by June 15, 2027.</p>
-          </form>
+          <div class="coming-soon">Coming soon — RSVP submissions will be available once the invitations are sent.</div>
+          <p class="helper-text">Thank you for your patience while we prepare everything for our celebration.</p>
         </section>
       </div>
 
-      <aside class="countdown-card" aria-label="RSVP deadline countdown">
-        <p class="countdown-label">RSVP deadline</p>
-        <h2>June 15, 2027</h2>
-        <div class="countdown">
-          <div><strong id="days">00</strong><span>Days</span></div>
-          <div><strong id="hours">00</strong><span>Hours</span></div>
-          <div><strong id="minutes">00</strong><span>Minutes</span></div>
-          <div><strong id="seconds">00</strong><span>Seconds</span></div>
-        </div>
-      </aside>
+
     </main>
 
     <footer>
